@@ -9,12 +9,7 @@ def search_database(search):
 
 
     # json_data = requests.get(multi_search).json()
-
     try:
-        errrors = json_data['errors'];
-        final_list = []
-        return final_list
-    except:
         results = json_data['games']
 
         newlist = sorted(results, key=lambda k: k['popularity'], reverse=True)
@@ -30,4 +25,8 @@ def search_database(search):
 
             # if result['media_type'] == "movie":
 
+        return final_list
+
+    except:
+        final_list = []
         return final_list
